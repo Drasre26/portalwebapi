@@ -3,6 +3,7 @@ import {TypeOrmModule} from '@nestjs/typeorm'
 import { UsuarioModule } from './usuario/usuario.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module'
+import { EventoModule } from './evento/evento.module';
 @Module({
   imports: [
     //Data Base Conection
@@ -25,7 +26,8 @@ import { AuthModule } from './auth/auth.module'
       envFilePath:'.env'
     }),
     UsuarioModule,
-    AuthModule
+    AuthModule,
+    EventoModule
   ]
 })
 export class AppModule {}
