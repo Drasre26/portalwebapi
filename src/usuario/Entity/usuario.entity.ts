@@ -25,7 +25,7 @@ export class UsuarioEntity{
     @Column({type:'varchar',default:"Participante"})
     rol:string;
 
-    @Column({type:'varchar',default:"Activo"})
+    @Column({type:'varchar',default:"Inscrito"})
     estado:string;
 
     @CreateDateColumn({type:'timestamp'})
