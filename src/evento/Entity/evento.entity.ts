@@ -2,7 +2,7 @@
 import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('evento')
-export class UsuarioEntity{
+export class EventoEntity{
     @PrimaryGeneratedColumn()
     idevento:number;
 
@@ -21,8 +21,8 @@ export class UsuarioEntity{
     @Column('int',{default:50})
     limiteparticipantes:number
 
-    @CreateDateColumn({type:'date'})
-    fecha:Date  
+    // @CreateDateColumn({type:'date'})
+    // fecha:Date  
 
     @Column({type:'varchar',default:"Activo"})
     estado:string;
