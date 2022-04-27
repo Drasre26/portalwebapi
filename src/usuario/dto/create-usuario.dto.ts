@@ -1,3 +1,4 @@
+import { RolUsuario } from './../enums/usuario-rol.enums';
 import { IsOptional, IsString, MaxLength, MinLength } from "class-validator";
 
 export class CreateUsuarioDto{
@@ -21,6 +22,9 @@ export class CreateUsuarioDto{
     @MinLength(8)
     @MaxLength(500)
     password:string;
+
+    @IsString()
+    rol: RolUsuario
 
     @IsString()
     @IsOptional()

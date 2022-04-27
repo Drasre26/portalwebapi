@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module'
 import { EventoModule } from './evento/evento.module';
 import { ExpositoresModule } from './expositores/expositores.module';
+import { SuscripcionModule } from './suscripcion/suscripcion.module';
 @Module({
   imports: [
     //Data Base Conection
@@ -29,7 +30,8 @@ import { ExpositoresModule } from './expositores/expositores.module';
     UsuarioModule,
     AuthModule,
     EventoModule,
-    ExpositoresModule
+    ExpositoresModule,
+    SuscripcionModule
   ]
 })
 export class AppModule {}
