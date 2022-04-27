@@ -1,5 +1,6 @@
 
-import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { SuscripcionEntity } from "src/suscripcion/Entity/suscripcion.entity";
+import {Column, CreateDateColumn, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('evento')
 export class EventoEntity{
@@ -23,7 +24,10 @@ export class EventoEntity{
 
     // @CreateDateColumn({type:'date'})
     // fecha:Date  
-
+    @OneToMany(type=>SuscripcionEntity,suscriptor=>suscriptor.idevento)
+    @JoinColumn({ name: "idevento" })
+    suscriptor:SuscripcionEntity
+    
     @Column({type:'varchar',default:"Activo"})
     estado:string;
 

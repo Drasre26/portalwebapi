@@ -1,5 +1,7 @@
 import { hashSync } from "bcrypt";
-import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { SuscripcionEntity } from "src/suscripcion/Entity/suscripcion.entity";
+import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { RolUsuario } from "../enums/usuario-rol.enums";
 
 @Entity('usuario')
 export class UsuarioEntity{
@@ -23,7 +25,7 @@ export class UsuarioEntity{
     password:string;
     
     @Column({type:'varchar',default:"Participante"})
-    rol:string;
+    rol:RolUsuario;
 
     @Column({type:'varchar',default:"Inscrito"})
     estado:string;
@@ -34,6 +36,9 @@ export class UsuarioEntity{
     @CreateDateColumn({type:'timestamp'})
     updatedat:Date;
 
+    @OneToMany(type=>SuscripcionEntity,suscriptor=>suscriptor.idusuario)
+    @JoinColumn({ name: "idusuario" })
+    suscriptor:SuscripcionEntity
 
     @BeforeInsert()
     @BeforeUpdate()
