@@ -1,4 +1,5 @@
 import { IsNumber, IsString } from "class-validator";
+import { CreateEventoDto } from "src/evento/dto/create-evento.dto";
 import { CreateUsuarioDto } from "src/usuario/dto";
 
 export class CreateSuscripcionDto{
@@ -6,5 +7,8 @@ export class CreateSuscripcionDto{
     estado:string;
 
     @IsNumber()
-    idusuario:CreateUsuarioDto
+    idusuario:number
+    
+    @IsNumber()
+    idevento:number
 }

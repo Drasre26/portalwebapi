@@ -19,12 +19,12 @@ export class SuscripcionEntity{
     updatedat:Date;
 
     @ManyToOne(type=>UsuarioEntity,usuario=>usuario.idusuario)
-    @JoinColumn({ name: "idusuario" })
-    idusuario:UsuarioEntity
+    @JoinColumn({ name: "idusuario"})
+    idusuario:number
 
     @ManyToOne(type=>EventoEntity,evento=>evento.idevento)
     @JoinColumn({ name: "idevento" })
-    idevento:EventoEntity
+    idevento:number
 
     @BeforeInsert()
     @BeforeUpdate()
