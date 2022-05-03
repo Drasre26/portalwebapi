@@ -5,7 +5,6 @@ import { CreateUsuarioDto, EditUsuarioDto } from './dto';
 import { UsuarioService } from './usuario.service';
 
 @ApiTags('Api Usuarios')//Tag para los Docs
-@Auth()
 @Controller('api/v1/usuarios')
 export class UsuarioController {
     constructor(private readonly usuarioService:UsuarioService){}

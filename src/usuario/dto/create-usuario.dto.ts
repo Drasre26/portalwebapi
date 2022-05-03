@@ -24,6 +24,7 @@ export class CreateUsuarioDto{
     password:string;
 
     @IsString()
+    @IsOptional()
     rol: RolUsuario
 
     @IsString()
