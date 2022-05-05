@@ -1,3 +1,4 @@
+import { EventoEntity } from './../evento/Entity/evento.entity';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -17,15 +18,15 @@ export class SuscripcionService {
 
     async getOneItem(id:number){
         const data = await this.suscriptorRepository.findOne(id)
+                    
         if(!data) throw new Error();
         return data;
     }
 
-    async getItemByUser(id:number){
-        const data = await this.suscriptorRepository.find({idusuario:id})
-        console.log(data.length)
+    async getItemByUser(idusuario:number){
+        const data = await this.suscriptorRepository.query(`CALL sp_EventosUsuario(${idusuario})`)
         if(data.length<1) throw new Error();
-        return data;
+        return data[0];
     }
 
     async postItem(dto:CreateSuscripcionDto){
