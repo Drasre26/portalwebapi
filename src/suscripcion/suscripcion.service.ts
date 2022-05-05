@@ -21,6 +21,13 @@ export class SuscripcionService {
         return data;
     }
 
+    async getItemByUser(id:number){
+        const data = await this.suscriptorRepository.find({idusuario:id})
+        console.log(data.length)
+        if(data.length<1) throw new Error();
+        return data;
+    }
+
     async postItem(dto:CreateSuscripcionDto){
         try {
             const data = this.suscriptorRepository.create(dto)

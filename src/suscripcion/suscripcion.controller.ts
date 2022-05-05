@@ -6,9 +6,9 @@ import { EditSuscripcionDto } from './dto/edit-suscripcion.dto';
 import { SuscripcionService } from './suscripcion.service';
 
 @ApiTags('Api Suscripcion')//Tag para los Docs
-@Auth()
+//@Auth()
 
-@Controller('api/v1/suscripcion')
+@Controller('api/v1/suscripciones')
 export class SuscripcionController {
 
     constructor(private readonly suscripcionService:SuscripcionService){}
@@ -17,10 +17,18 @@ export class SuscripcionController {
     async getItems(){
         return await this.suscripcionService.getItems()
     }
+
+    @Get('usuario/:id')
+    async getItemByUser(@Param('id',ParseIntPipe) id:number){
+        return await this.suscripcionService.getItemByUser(id)
+    }
+
     @Get(':id')
     async getOneItem(@Param('id',ParseIntPipe) id:number){
         return await this.suscripcionService.getOneItem(id)
     }
+
+    
     
     @Post()
     async postItem(@Body() dto:CreateSuscripcionDto){
