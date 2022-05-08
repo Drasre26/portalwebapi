@@ -47,4 +47,13 @@ export class SuscripcionService {
         }
     }
 
+    async deleteItem(id:number){
+        try {
+            console.log(id)
+            return await this.suscriptorRepository.delete(id)
+        } catch (error) {
+            return error
+        }
+    }
+
 }

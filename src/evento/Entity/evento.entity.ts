@@ -14,7 +14,7 @@ export class EventoEntity{
     subtitulo:string;
 
     @Column('text')
-    descripción:string;
+    descripcion:string;
 
     @Column('text')
     portada:string;
@@ -22,8 +22,9 @@ export class EventoEntity{
     @Column('int',{default:50})
     limiteparticipantes:number
 
-    // @CreateDateColumn({type:'date'})
-    // fecha:Date  
+    @CreateDateColumn({type:'timestamp'})
+    fecha:Date  
+
     @OneToMany(type=>SuscripcionEntity,suscriptor=>suscriptor.idevento)
     @JoinColumn({ name: "idevento" })
     suscriptor:SuscripcionEntity

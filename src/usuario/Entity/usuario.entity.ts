@@ -15,7 +15,7 @@ export class UsuarioEntity{
     @Column('varchar',{length:25})
     telefono:string;
 
-    @Column('varchar',{length:100,unique:true})
+    @Column('varchar',{length:100})
     email:string;
 
     @Column('varchar',{length:30,unique:true})

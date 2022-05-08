@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { Auth } from 'src/common/decorators';
 import { CreateSuscripcionDto } from './dto/create-suscripcion.dto';
@@ -27,8 +27,6 @@ export class SuscripcionController {
     async getOneItem(@Param('id',ParseIntPipe) id:number){
         return await this.suscripcionService.getOneItem(id)
     }
-
-    
     
     @Post()
     async postItem(@Body() dto:CreateSuscripcionDto){
@@ -44,5 +42,10 @@ export class SuscripcionController {
         } catch (error) {
             return error
         }
+    }
+
+    @Delete(':id')
+    async deleteItem(@Param('id',ParseIntPipe) id:number){
+        return await this.suscripcionService.deleteItem(id)
     }
 }

@@ -21,6 +21,13 @@ export class EventoService {
         return data;
     }
 
+    async participantesEvento(idevento:number){
+
+        const data = await this.eventoRepository.query(`CALL sp_ParticipantesEvento(${idevento})`)
+        if(data.length<1) throw new Error();
+        return data[0];
+    }
+
     async postItem(dto:CreateEventoDto){
         try {
             const data = this.eventoRepository.create(dto)

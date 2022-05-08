@@ -6,7 +6,7 @@ import { Auth } from 'src/common/decorators';
 import { EventoService } from './evento.service';
 
 @ApiTags('Api Eventos')//Tag para los Docs
-@Auth()
+//@Auth()
 @Controller('api/v1/eventos')
 export class EventoController {
     constructor(private readonly eventoService:EventoService){}
@@ -14,11 +14,18 @@ export class EventoController {
     async getItems(){
         return await this.eventoService.getItems()
     }
+
+    @Get('participantes/:idevento')
+    async participantesEvento(@Param('idevento',ParseIntPipe) idevento:number){
+        
+        return await this.eventoService.participantesEvento(idevento)
+    }
+
     @Get(':id')
     async getOneItem(@Param('id',ParseIntPipe) id:number){
         return await this.eventoService.getOneItem(id)
     }
-    
+
     @Post()
     async postItem(@Body() dto:CreateEventoDto){
         const data = await this.eventoService.postItem(dto)
