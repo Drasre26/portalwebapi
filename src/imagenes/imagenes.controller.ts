@@ -10,13 +10,12 @@ export class ImagenesController {
     @Post('upload')
     @UseInterceptors(FileInterceptor('file', {storage:diskStorage({destination:'./imagenes',filename:renombrarPortada})} ))
         uploadFile(@UploadedFile() file: Express.Multer.File) {
-
        return of(file);
     }
 
-    @Get(':monstrar')
-    getFile(@Param('portada') portada:string,@Res() res):Observable<any> {
-        const file = res.sendFile(join(process.cwd(), 'imagenes/'+portada));
+    @Get(':boleta')
+    getFile(@Param('boleta') boleta:string,@Res() res):Observable<any> {
+        const file = res.sendFile(join(process.cwd(), 'imagenes/'+boleta));
         return of(file);
     }
 

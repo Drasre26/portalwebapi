@@ -44,7 +44,7 @@ export class UsuarioService {
         const data =  await this.usuarioRepository
         .createQueryBuilder('user')
         .where({usuario})
-        .andWhere('user.estado = :estado', { estado: 'Activo' })
+        .andWhere('user.estado != :estado', { estado: 'Eliminado' })
         .addSelect('user.password')
         .getOne()
         return data

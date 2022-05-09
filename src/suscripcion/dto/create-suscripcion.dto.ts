@@ -7,6 +7,10 @@ export class CreateSuscripcionDto{
     @IsOptional()
     estado:string;
 
+    @IsString()
+    @IsOptional()
+    boleta:string;
+
     @IsNumber()
     idusuario:number
     

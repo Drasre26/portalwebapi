@@ -11,7 +11,16 @@ export class SuscripcionEntity{
 
     @Column('varchar',{default:'Inscrito'})
     estado:string;
-    
+
+    // @Column('varchar',{default:'Participante'})//aqui puede ser conferencista
+    // tipousuario:string;
+
+    @Column('bigint',{default:'0'})
+    numeroboleta:string;
+
+    @Column('varchar',{default:'default.png'})
+    boleta:string;
+
     @CreateDateColumn({type:'timestamp'})
     createdat:Date;
 
