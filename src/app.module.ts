@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module'
 import { EventoModule } from './evento/evento.module';
 import { ExpositoresModule } from './expositores/expositores.module';
 import { SuscripcionModule } from './suscripcion/suscripcion.module';
+import { ImagenesModule } from './imagenes/imagenes.module';
 @Module({
   imports: [
     //Data Base Conection
@@ -31,7 +32,8 @@ import { SuscripcionModule } from './suscripcion/suscripcion.module';
     AuthModule,
     EventoModule,
     ExpositoresModule,
-    SuscripcionModule
+    SuscripcionModule,
+    ImagenesModule
   ]
 })
 export class AppModule {}
