@@ -8,7 +8,7 @@ export class CreateEventoDto{
     subtitulo:string;
 
     @IsString()
-    descripción:string;
+    descripcion:string;
 
     @IsString()
     portada:string;

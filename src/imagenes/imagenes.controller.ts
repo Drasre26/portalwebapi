@@ -13,10 +13,11 @@ export class ImagenesController {
        return of(file);
     }
 
-    @Get(':boleta')
-    getFile(@Param('boleta') boleta:string,@Res() res):Observable<any> {
-        const file = res.sendFile(join(process.cwd(), 'imagenes/'+boleta));
+    @Get(':imagen')
+    getFile(@Param('imagen') imagen:string,@Res() res):Observable<any> {
+        const file = res.sendFile(join(process.cwd(), 'imagenes/'+imagen));
         return of(file);
     }
+
 
 }
