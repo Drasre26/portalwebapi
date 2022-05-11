@@ -1,7 +1,7 @@
 import { CreateEventoDto } from './dto/create-evento.dto';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Not, Repository } from 'typeorm';
 import { EventoEntity } from './Entity/evento.entity';
 import { EditEventoDto } from './dto/edit-evento.dto';
 
@@ -10,7 +10,10 @@ export class EventoService {
     constructor(@InjectRepository(EventoEntity) private readonly eventoRepository: Repository<EventoEntity>){}
 
     async getItems(){
-        const data = await this.eventoRepository.find()
+        const data = await this.eventoRepository.find({
+            order:{ fecha:"ASC" },
+            where:{ estado: Not("Eliminado") }
+        })
         if(!data[0])throw new NotFoundException('No se encontraron registros')
         return data;
     }
