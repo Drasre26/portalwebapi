@@ -17,6 +17,9 @@ export class EventoEntity{
     descripcion:string;
 
     @Column('text')
+    googlemaps:string;
+
+    @Column('text')
     portada:string;
 
     @Column('int',{default:50})

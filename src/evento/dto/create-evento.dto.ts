@@ -11,6 +11,9 @@ export class CreateEventoDto{
     descripcion:string;
 
     @IsString()
+    googlemaps:string;
+
+    @IsString()
     portada:string;
 
     @IsNumber()
