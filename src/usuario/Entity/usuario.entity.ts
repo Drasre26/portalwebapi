@@ -12,6 +12,9 @@ export class UsuarioEntity{
     @Column('varchar',{length:500})
     apellido:string;
 
+    @Column('varchar',{length:500,default:"default.png"})
+    foto:string;
+
     @Column('varchar',{length:25})
     telefono:string;
 

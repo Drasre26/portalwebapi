@@ -9,6 +9,10 @@ export class CreateUsuarioDto{
     apellido:string;
 
     @IsString()
+    @IsOptional()
+    foto:string;
+
+    @IsString()
     telefono:string;
 
     @IsString()
