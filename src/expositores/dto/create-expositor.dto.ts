@@ -8,6 +8,9 @@ export class CreateExpositorDto{
     fotografia:string;
 
     @IsString()
+    minibiografia:string;
+
+    @IsString()
     biografia:string;
 
     @IsString()

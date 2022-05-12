@@ -10,6 +10,9 @@ export class ExpositorEntity{
     nombre:string;
 
     @Column('text')
+    minibiografia:string;
+
+    @Column('text')
     fotografia:string;
 
     @Column('text')
