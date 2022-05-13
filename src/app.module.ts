@@ -7,6 +7,7 @@ import { EventoModule } from './evento/evento.module';
 import { ExpositoresModule } from './expositores/expositores.module';
 import { SuscripcionModule } from './suscripcion/suscripcion.module';
 import { ImagenesModule } from './imagenes/imagenes.module';
+import { ExpositoreventoModule } from './expositorevento/expositorevento.module';
 @Module({
   imports: [
     //Data Base Conection
@@ -33,7 +34,8 @@ import { ImagenesModule } from './imagenes/imagenes.module';
     EventoModule,
     ExpositoresModule,
     SuscripcionModule,
-    ImagenesModule
+    ImagenesModule,
+    ExpositoreventoModule
   ]
 })
 export class AppModule {}

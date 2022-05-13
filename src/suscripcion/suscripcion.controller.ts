@@ -1,12 +1,10 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Auth } from 'src/common/decorators';
 import { CreateSuscripcionDto } from './dto/create-suscripcion.dto';
 import { EditSuscripcionDto } from './dto/edit-suscripcion.dto';
 import { SuscripcionService } from './suscripcion.service';
 
 @ApiTags('Api Suscripcion')//Tag para los Docs
-//@Auth()
 
 @Controller('api/v1/suscripciones')
 export class SuscripcionController {
