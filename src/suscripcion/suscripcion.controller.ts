@@ -21,6 +21,11 @@ export class SuscripcionController {
         return await this.suscripcionService.getItemByUser(id)
     }
 
+    @Get('validarboleta/:numeroboleta')
+    async buscarBoleta(@Param('numeroboleta') numeroboleta:string){
+        return await this.suscripcionService.buscarBoleta(numeroboleta)
+    }
+
     @Get(':id')
     async getOneItem(@Param('id',ParseIntPipe) id:number){
         return await this.suscripcionService.getOneItem(id)

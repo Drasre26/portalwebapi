@@ -23,6 +23,14 @@ export class SuscripcionService {
         return data;
     }
 
+    async buscarBoleta(numeroboleta:string){
+        const data = await this.suscriptorRepository.findOne({
+            where:{numeroboleta : numeroboleta}
+        })             
+        if(!data) throw new Error();
+        return data;
+    }
+
     async getItemByUser(idusuario:number){
         const data = await this.suscriptorRepository.query(`CALL sp_EventosUsuario(${idusuario})`)
         if(data.length<1) throw new Error();
