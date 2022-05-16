@@ -31,6 +31,14 @@ export class SuscripcionService {
         return data;
     }
 
+    async validarGafete(idsuscripcion: number){
+
+        const data = await this.suscriptorRepository.query(`CALL sp_ValidarGafete(${idsuscripcion})`)
+        if(data.length<1) throw new Error();
+        return data[0];
+        
+    }
+
     async getItemByUser(idusuario:number){
         const data = await this.suscriptorRepository.query(`CALL sp_EventosUsuario(${idusuario})`)
         if(data.length<1) throw new Error();
