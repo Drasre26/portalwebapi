@@ -8,6 +8,8 @@ import { ExpositoresModule } from './expositores/expositores.module';
 import { SuscripcionModule } from './suscripcion/suscripcion.module';
 import { ImagenesModule } from './imagenes/imagenes.module';
 import { ExpositoreventoModule } from './expositorevento/expositorevento.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 @Module({
   imports: [
     //Data Base Conection
@@ -36,6 +38,8 @@ import { ExpositoreventoModule } from './expositorevento/expositorevento.module'
     SuscripcionModule,
     ImagenesModule,
     ExpositoreventoModule
-  ]
+  ],
+  providers:[AppService],
+  controllers: [AppController]
 })
 export class AppModule {}
